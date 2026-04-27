@@ -12,7 +12,7 @@
     button {
       padding: 10px 20px;
       font-size: 16px;
-      margin: 5px;
+      margin-top: 10px;
     }
     #result {
       margin-top: 20px;
@@ -30,14 +30,8 @@
 
 <script>
 
-// DATA POSYANDU + LINK WHATSAPP
+// DATA POSYANDU (EDIT SESUAI LOKASI ANDA)
 const posyanduList = [
-  {
-    nama: "Posyandu Nusantara",
-    lat: -3.453966785316707, 
-    lng: 114.76997265434265,
-    wa: "https://chat.whatsapp.com/DwYiaMoH8TsGWufY0lrfz6"
-  },
   {
     nama: "Posyandu Mawar",
     lat: -3.427808715814898,  
@@ -47,10 +41,15 @@ const posyanduList = [
     nama: "Posyandu Melati",
     lat: -3.4253026564559663,  
     lng: 114.82718722558798
+  },
+  {
+    nama: "Posyandu Anggrek",
+    lat: -3.4400,
+    lng: 114.8420
   }
 ];
 
-// HITUNG JARAK
+// HITUNG JARAK (HAVERSINE)
 function hitungJarak(lat1, lon1, lat2, lon2) {
   const R = 6371;
   const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -92,13 +91,8 @@ function cariLokasi() {
         Posyandu terdekat:<br><br>
         ${terdekat.nama}<br>
         Jarak: ${jarakTerdekat.toFixed(2)} km<br><br>
-
         <a href="${linkMaps}" target="_blank">
-          <button>📍 Arah ke Lokasi</button>
-        </a><br>
-
-        <a href="${terdekat.wa}" target="_blank">
-          <button>💬 Gabung Grup WhatsApp</button>
+          <button>Buka Arah di Google Maps</button>
         </a>
       `;
 
